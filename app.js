@@ -43,6 +43,7 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('disconnect', function(){
       delete STATE.SOCKET_LIST[socket.id]
+      STATE.PLAYERS_LIST = STATE.PLAYERS_LIST.filter(a => a.id !== socket.id)
     })
 
 })
