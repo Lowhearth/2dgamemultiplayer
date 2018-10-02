@@ -17,7 +17,7 @@ module.exports = function physics (player){
     }
   }
 
-  if(player.pivot.y < 480 && !player.isJumping){
+  if(player.pivot.y < 480 && !player.isJumping && !player.playerCollider.collisionBot){
   player.pivot.y = player.pivot.y + player.gravity
     if(player.pivot.y > 480){
       player.pivot.y = 480
