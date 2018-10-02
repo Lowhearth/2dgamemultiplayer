@@ -23,7 +23,7 @@ serv.listen(PORT);
 /*Game State*/
 
 var STATE = { SOCKET_LIST: {},
-              PLAYERS_LIST: {} }
+              PLAYERS_LIST: [] }
 
 /*Game State*/
 
@@ -34,7 +34,7 @@ io.sockets.on('connection', function (socket) {
     let newPlayer = player(socket.id)
 
     STATE.SOCKET_LIST[socket.id] = socket;
-    STATE.PLAYERS_LIST[socket.id] = newPlayer
+    STATE.PLAYERS_LIST.push(newPlayer)
 
     socket.on('changeName', function (date){
       newPlayer.name = date.name
@@ -43,7 +43,6 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('disconnect', function(){
       delete STATE.SOCKET_LIST[socket.id]
-      delete STATE.PLAYERS_LIST[socket.id]
     })
 
 })

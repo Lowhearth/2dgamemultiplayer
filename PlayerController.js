@@ -1,5 +1,5 @@
 module.exports = function controller (socket, newPlayer) {
-  
+
   return(
     socket.on('keyPress', function (data){
       console.log("keypressed" + data.inputId + "  " + data.state)
@@ -16,7 +16,6 @@ module.exports = function controller (socket, newPlayer) {
       }
       if(data.inputId === "up"){
         newPlayer.movingUp = data.state
-
       }
       if(data.inputId === "down"){
         newPlayer.movingDown = data.state
